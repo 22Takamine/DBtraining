@@ -8,7 +8,7 @@ student_id INT PRIMARY KEY
 , student_name VARCHAR(50)
 , grade INT
 , hometown VARCHAR(50)
-, major_id INT NOT NULL REFERENCES major
+, major_id INT NOT NULL REFERENCES major(major_id)
 );
 
 INSERT INTO major       --major‚É’l‚ð‘}“ü
