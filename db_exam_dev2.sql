@@ -66,4 +66,20 @@ GROUP BY order_date
 ;
 */
 
-                    
+SELECT  s.customer_id, c.customer_name,TRUNC(avg(s.amount))
+FROM sales AS s
+INNER JOIN customer AS c
+ON s.customer_id = c.customer_id
+GROUP BY s.customer_id,c.customer_name
+ORDER BY s.customer_id
+;
+
+SELECT *
+FROM sales
+WHERE sales_id = (SELECT sales_id
+                  FROM sales
+                  WHERE order_date BETWEEN '2018/09/01' AND '2018/09/30'
+                  ORDER BY amount DESC LIMIT 1
+                  )
+;
+                                           

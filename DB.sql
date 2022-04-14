@@ -55,4 +55,6 @@ DELETE FROM student WHERE student_id = 10               --studentのstudent_idが1
 ;
 
 SELECT * FROM student --更新の確認
+
+
  

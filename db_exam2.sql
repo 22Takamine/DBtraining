@@ -57,12 +57,14 @@ WHERE major_id = (  SELECT major_id
 ORDER BY student_id
 ;
 
-SELECT *
-FROM student  
-WHERE major_id =(   SELECT major_id, 
+SELECT student_id, student_name, major_id
+FROM student
+WHERE major_id IN  (SELECT major_id--, count(major_id)
                     FROM student
-                    WHERE count(major_id) >= 3
                     GROUP BY major_id
-                )
-                
+                    HAVING count(major_id) >=3 
+            )
+ORDER BY major_id, student_id
+;
+                 
 
