@@ -40,7 +40,8 @@ SELECT * FROM sales WHERE amount < 5000     --amountの値が5000未満を表示
 SELECT * FROM sales WHERE amount >= 5000    --amountの値が5000以上を表示
 ;
 
-SELECT *, amount * 1.1 FROM sales           --salesの値のほかにamountに1.1を掛けた値を表示
+SELECT *, amount * 1.1 AS カラム名なし
+FROM sales           --salesの値のほかにamountに1.1を掛けた値を表示
 ;
 
 SELECT * FROM sales WHERE amount IS NOT NULL    --NULLは比べられないのでIS NOTを使用する。ISだと同じ際使用する。

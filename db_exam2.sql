@@ -39,7 +39,7 @@ ON s.major_id = m.major_id
 ORDER BY major_name, student_name
 ;
 
---
+--studentテーブルとmajorテーブルを結合し、WHEREで東京以外を表示させている。
 SELECT s.student_id, s.student_name, s.hometown, m.major_name
 FROM student AS s
 INNER JOIN major AS m
@@ -48,6 +48,7 @@ WHERE s.hometown != '東京'
 ORDER BY m.major_name, s.student_id
 ;
 
+--サブクエリで英文学のmajor_idを取得して、そのidの名前を表示している。
 SELECT student_id, student_name, grade
 FROM student
 WHERE major_id = (  SELECT major_id
@@ -57,14 +58,14 @@ WHERE major_id = (  SELECT major_id
 ORDER BY student_id
 ;
 
+--サブクエリの値が１つではないので = ではなく、INを使用する。
 SELECT student_id, student_name, major_id
 FROM student
 WHERE major_id IN  (SELECT major_id--, count(major_id)
                     FROM student
                     GROUP BY major_id
                     HAVING count(major_id) >=3 
-            )
+                    )
 ORDER BY major_id, student_id
 ;
                  
-

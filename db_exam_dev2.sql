@@ -1,3 +1,4 @@
+
 CREATE TABLE sales_old(
 sales_id INT PRIMARY KEY
 , order_date DATE
@@ -14,17 +15,20 @@ VALUES
 ,(9,'2018/09/05',1,3000)
 ;
 
+--salesのテーブルとsales_oldのテーブルを結合している。
 INSERT INTO sales
 SELECT *
 FROM sales_old
 ;
 
+--更新の確認
 SELECT * FROM sales
 ;
 
 DROP TABLE sales_old
 ;
 
+--CASEにより指定した日付をもとに表示するものを判断している。
 SELECT sales_id, order_date
 , CASE 
     WHEN order_date < '2018/10/01' THEN '〇'
@@ -35,17 +39,20 @@ FROM sales
 ORDER BY order_date
 ;
 
+--文字列を結合し、表示している
 SELECT customer_id || ':' || customer_name AS customer_id_name
 FROM customer
 ORDER BY customer_id
 ;
 
+--ORDER BYでグループにし、LIMITによりその最大２件分までを取得している。
 SELECT *
 FROM sales
 WHERE customer_id = 1
 ORDER BY order_date  DESC LIMIT 2 
 ;
 
+--サブクエリでorder_dateの最小値を取得し、そのグループの合計を表示している
 SELECT order_date, sum(amount) AS sum_amount
 FROM sales
 WHERE order_date = (SELECT min(order_date) 
@@ -66,6 +73,7 @@ GROUP BY order_date
 ;
 */
 
+--
 SELECT  s.customer_id, c.customer_name,TRUNC(avg(s.amount))
 FROM sales AS s
 INNER JOIN customer AS c
@@ -82,4 +90,30 @@ WHERE sales_id = (SELECT sales_id
                   ORDER BY amount DESC LIMIT 1
                   )
 ;
-                                           
+
+
+--DROP SEQUENCE num
+
+CREATE TABLE users
+(id serial PRIMARY KEY,name VARCHAR(50))
+;
+
+SELECT setval('users_id_seq',101,FALSE)
+
+INSERT INTO users
+(name)
+VALUES
+('山田')
+,('森田')
+,('西田')
+,('岡田')
+,('佐次田')
+;
+
+SELECT *
+FROM users
+;  
+
+DELETE 
+FROM users
+;                                         
