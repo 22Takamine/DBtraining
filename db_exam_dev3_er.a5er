@@ -1,0 +1,135 @@
+﻿# A5:ER FORMAT:16
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.17.1 Copyright © 1997 - 2022 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+BugFixEntityWidth=1
+
+[Entity]
+PName=author
+LName=author
+Comment=
+TableOption=
+Page=MAIN
+Left=650
+Top=250
+Field="id","id","integer","NOT NULL",0,"","",$FFFFFFFF,""
+Field="name","name","character varying(50)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",650,250
+ZOrder=-1
+
+[Entity]
+PName=book
+LName=book
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=50
+Field="id","id","integer","NOT NULL",0,"","",$FFFFFFFF,""
+Field="book_name","book_name","character varying(50)",,,"","",$FFFFFFFF,""
+Field="company_id","company_id","integer","NOT NULL",,"","",$FFFFFFFF,""
+Field="price","price","integer",,,"","",$FFFFFFFF,""
+Field="book_date","book_date","date",,,"","",$FFFFFFFF,""
+Field="author_id","author_id","integer","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",200,50,220,257
+ZOrder=-2
+
+[Entity]
+PName=company
+LName=company
+Comment=
+TableOption=
+Page=MAIN
+Left=650
+Top=50
+Field="id","id","integer","NOT NULL",0,"","",$FFFFFFFF,""
+Field="name","name","character varying(50)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+Position="MAIN",650,50
+ZOrder=-3
+
+[Relation]
+Entity1=company
+Entity2=book
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=company_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,700,9300,2872,R,R,""
+Dependence=0
+Caption=
+PName=
+NoDDL=1
+ModifiedDateTime=20220418180854
+LineMode=0
+Bar1=70
+Bar2=930
+Bar3=287
+TermPos1=R
+TermPos2=R
+ZOrder=3
+
+[Relation]
+Entity1=author
+Entity2=book
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=author_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,990,9010,7978,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220418180926
+LineMode=0
+Bar1=99
+Bar2=901
+Bar3=798
+TermPos1=R
+TermPos2=R
+ZOrder=4
