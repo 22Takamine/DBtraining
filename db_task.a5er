@@ -134,7 +134,7 @@ Field="discount_id","discount_id","integer","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-Position="MAIN",500,500,180,86
+Position="MAIN",500,500,180,143
 ZOrder=-6
 
 [Entity]
@@ -398,14 +398,14 @@ Fields1=goods_id
 Fields2=goods_id
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,2966,9547,2628,R,R,""
+Position="MAIN",0,2966,9547,1580,R,R,""
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=297
 Bar2=955
-Bar3=263
+Bar3=158
 TermPos1=R
 TermPos2=R
 ZOrder=-14
